@@ -1,0 +1,7 @@
+SELECT DISTINCT CustomerID
+FROM Sales
+WHERE CustomerID NOT IN (
+    SELECT DISTINCT CustomerID
+    FROM Sales
+    WHERE Date >= DATEADD(MONTH, -6, GETDATE())
+);
